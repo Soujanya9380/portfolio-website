@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soujanya Giraddi | Data Analyst Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #0ea5e9;
+      --secondary: #38bdf8;
+      --accent: #22c55e;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --gray: #64748b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: linear-gradient(180deg, #f8fafc, #eef2ff);
+      color: var(--dark);
+    }
+
+    /* ---------------- NAVBAR ---------------- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    nav h2 { color: var(--primary); font-weight: 700; }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: var(--primary);
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover::after { width: 100%; }
+
+    /* ---------------- SECTIONS ---------------- */
+    section {
+      max-width: 1150px;
+      margin: auto;
+      padding: 5rem 1.5rem;
+      scroll-margin-top: 100px;
+    }
+
+    
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 2.5rem;
+      color: var(--primary);
+      text-align: center;
+    }
+
+    /* ---------------- HOME ---------------- */
+    .home {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+      align-items: center;
+      min-height: 90vh;
+    }
+
+    .home h1 {
+      font-size: 3rem;
+      line-height: 1.2;
+    }
+
+    .tagline {
+      font-size: 1.25rem;
+      color: var(--gray);
+      margin: 1.2rem 0 2rem;
+    }
+
+    .home img {
+      width: 280px;
+      border-radius: 50%;
+      border: 6px solid var(--secondary);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .cta {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: nowrap; /* Always single line on desktop */
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .cta a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.4rem;
+      min-width: 150px;
+      height: 48px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-secondary { border: 2px solid var(--primary); color: var(--primary); }
+
+    .cta a:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+
+    /* ---------------- GRID & CARDS ---------------- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+      transition: 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    }
+
+    /* ---------------- SKILLS ---------------- */
+    .skill { margin-bottom: 1.2rem; }
+
+    .skill span { font-weight: 500; }
+
+    .bar {
+      background: #e5e7eb;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 0.4rem;
+    }
+
+    .bar div {
+      height: 12px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+
+    /* ---------------- CONTACT ---------------- */
+    #contact .card p { margin-bottom: 0.6rem; }
+
+    /* ---------------- FOOTER ---------------- */
+    footer {
+      background: var(--dark);
+      color: #cbd5f5;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    footer a { color: #93c5fd; text-decoration: none; }
+
+    /* ---------------- RESPONSIVE ---------------- */
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .home h1 { font-size: 2.3rem; }
+      h2 { font-size: 1.8rem; }
+
+      /* Make CTA buttons fully responsive */
+      .cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .cta a {
+        width: 100%;
+        min-width: unset;
+      }
+    }
+      .home h1 { font-size: 2.3rem; }
+      h2 { font-size: 1.8rem; }
+    }
+  /* ---------------- CERTIFICATE MODAL ---------------- */
+    .cert-thumb { cursor: pointer; transition: transform 0.3s; }
+    .cert-thumb:hover { transform: scale(1.05); }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 85%;
+      border-radius: 16px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+    }
+
+    .modal span {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <h2>Soujanya Giraddi</h2>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HOME -->
+  <section id="home" class="home page-section">
+    <div>
+      <h1>Soujanya Giraddi</h1>
+      
+      <p style="margin-top:1rem; max-width:520px; color: var(--gray); line-height:1.7;">
+        Aspiring Data Analyst skilled in Python, SQL, Excel & Power BI.
+        Passionate about transforming raw data into meaningful business insights through visualization and analytics.
+      </p>
+      <div class="cta">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#contact" class="btn-secondary">Contact Me</a>
+        <a href="Resume.jpeg" download class="btn-primary">Download Resume</a>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <img src="image.png" alt="Soujanya Giraddi – Profile Photo">
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="page-section">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>I am an aspiring Data Analyst with hands-on experience in Excel, Python, SQL, and Power BI.</p>
+      <p>I enjoy working with data to uncover insights, trends, and meaningful stories that support better decision-making.</p>
+      <br>
+      <p><strong>Education:</strong></p>
+      <p><strong>Rani Chenamma University</strong><br>
+      A S Patil College of Commerce<br>
+      Vijayapur, India – 2022–2025<br>
+      • CGPA: 9.4 (A+)</p>
+      <br>
+      <p><strong>BHS Arts and TGP SC PU College</strong><br>
+      Jamakhandi, India – 2020–2022<br>
+      • Percentage: 9.38%</p>
+      <br>
+      <p><strong>Internships:</strong><br>
+      MAGNUM Information Driven (IoT Project)</p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="page-section">
+    <h2>Skills</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Technical Skills</h3>
+        <div class="skill"><span>Python (Pandas, NumPy, Matplotlib, Seaborn)</span><div class="bar"><div style="width:85%"></div></div></div>
+        <div class="skill"><span>SQL</span><div class="bar"><div style="width:80%"></div></div></div>
+        <div class="skill"><span>Excel (Advanced)</span><div class="bar"><div style="width:90%"></div></div></div>
+        <div class="skill"><span>Power BI</span><div class="bar"><div style="width:85%"></div></div></div>
+      </div>
+
+      <div class="card">
+        <h3>Soft Skills</h3>
+        <ul style="margin-left:1.2rem; line-height:1.9;">
+          <li>Analytical Thinking</li>
+          <li>Presentation Skills</li>
+          <li>Attention to Detail</li>
+          <li>Communication</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Services</h3>
+        <ul style="margin-left:1.2rem; line-height:1.9;">
+          <li>Data Analysis & Insight Generation</li>
+          <li>Data Cleaning & Preparation</li>
+          <li>Dashboard Creation (Excel & Power BI)</li>
+          <li>Business & Analytical Reporting</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications" class="page-section">
+    <h2>Certifications</h2>
+    <div class="grid">
+      <div class="card" style="text-align:center;">
+        <img src="Deloitte.jpeg" alt="Deloitte Data Analytics Certificate" class="cert-thumb" onclick="openCert()" style="width:100%; max-width:320px; border-radius:12px; margin-bottom:1rem; box-shadow:0 10px 25px rgba(0,0,0,0.15);">
+        <h3>Deloitte – Data Analytics Certificate</h3>
+        <p>Click the certificate to view full size.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATE MODAL -->
+  <div id="certModal" class="modal" onclick="closeCert()">
+    <span>&times;</span>
+    <img src="Deloitte.jpeg" alt="Deloitte Certificate Full View">
+  </div>
+
+  
+
+  <!-- PROJECTS -->
+  <section id="projects" class="page-section">
+    <h2>Projects</h2>
+    <div class="grid">
+
+      <div class="card">
+        <h3>Hospital OPD Dashboard (Python)</h3>
+        <p><strong>Problem Statement:</strong><br>
+        Hospitals face difficulty in monitoring patient flow, waiting times, and department-wise congestion.</p>
+
+        <p><strong>Tools Used:</strong><br>
+        Python, Pandas, NumPy, Matplotlib, Seaborn, Streamlit</p>
+
+        <p><strong>What I Did:</strong><br>
+        • Analyzed 12,000+ OPD records<br>
+        • Performed data cleaning and EDA<br>
+        • Built interactive visual dashboard using Streamlit<br>
+        • Identified peak visit hours and department load</p>
+
+        <p><strong>Key Insights:</strong><br>
+        • Detected peak congestion time slots<br>
+        • Identified departments with longest waiting times<br>
+        • Suggested resource optimization strategy</p>
+
+        
+      </div>
+
+      <div class="card">
+        <h3>Skill Insight Analysis (Naukri)</h3>
+        <p><strong>Problem Statement:</strong><br>
+        Job seekers lack clarity on trending skills and industry demand across roles.</p>
+
+        <p><strong>Tools Used:</strong><br>
+        Python, SQL, Excel, Power BI</p>
+
+        <p><strong>What I Did:</strong><br>
+        • Collected and analyzed job listing data<br>
+        • Extracted in-demand skills using SQL queries<br>
+        • Created Excel and Power BI dashboards<br>
+        • Compared role-wise skill demand trends</p>
+
+        <p><strong>Key Insights:</strong><br>
+        • Identified top emerging technical skills<br>
+        • Found skill gaps across industries<br>
+        • Highlighted high-demand roles for freshers</p>
+
+        
+      </div>
+
+      <div class="card">
+        <h3>EmergiGo – Intelligent Traffic Signal System</h3>
+        <p><strong>Problem Statement:</strong><br>
+        Emergency vehicles experience delays due to inefficient traffic signal prioritization.</p>
+
+        <p><strong>Tools Used:</strong><br>
+        Python, IoT Sensors, Image Processing, Cloud Deployment</p>
+
+        <p><strong>What I Did:</strong><br>
+        • Designed IoT-based traffic monitoring model<br>
+        • Processed real-time vehicle detection data<br>
+        • Implemented emergency vehicle prioritization logic<br>
+        • Simulated smart signal switching mechanism</p>
+
+        <p><strong>Key Insights:</strong><br>
+        • Reduced hypothetical emergency response delay<br>
+        • Improved traffic flow efficiency<br>
+        • Demonstrated scalable smart-city solution model</p>
+
+        
+      </div>
+
+    </div>
+  </section>
+
+  
+
+  <!-- CONTACT -->
+  <section id="contact" class="page-section">
+    <h2>Contact</h2>
+    <div class="card">
+      <p>📍 Vijayapur, India (Open to Remote)</p>
+      <p>📞 +91 93805 51659</p>
+      <p>📧 soujanyareddy9380@gmail.com</p>
+      <p>🔗 <a href="https://www.linkedin.com/in/soujanya-reddy-15b7a1335" target="_blank">LinkedIn</a> | <a href="https://github.com/Soujanya9380/Soujanya9380" target="_blank">GitHub</a></p>
+      <div style="margin-top:1.5rem;">
+        <a href="Resume.jpeg" download class="btn-primary" style="display:inline-block; padding:0.8rem 1.8rem; border-radius:30px; text-decoration:none; font-weight:600;">Download Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Soujanya Giraddi</p>
+  </footer>
+
+
+
+</body>
+</html>
